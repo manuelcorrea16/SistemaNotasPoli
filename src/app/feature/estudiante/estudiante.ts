@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-estudiante',
-  templateUrl: './estudiante/estudiante.html',
-  styleUrls: ['./estudiante/estudiante.css']
+  templateUrl: './estudiante.html',
+  styleUrls: ['./estudiante.css']
 })
 export class estudianteComponente implements OnInit {
 
@@ -12,12 +13,19 @@ export class estudianteComponente implements OnInit {
 
   @Output() openMenu = new EventEmitter();
 
+  constructor(private router: Router) {
+  }
+
 
   ngOnInit(): void {
-    
+
   }
-  clickregistro(){
+  clickregistro() {
     alert('hola')
-}
+  }
+
+  volver() {
+    this.router.navigate(['/']);
+  }
 
 }
