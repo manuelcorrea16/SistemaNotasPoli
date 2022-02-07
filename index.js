@@ -21,13 +21,13 @@ function getSedes (){
         if(err) {
           return console.error('error running query', err);
         }
+        var sedes = [];
         var codigo = result.rows.map(codigo=>{return codigo.codigo});
         var nombre = result.rows.map( nombre=>{return nombre.nombre});
-        const sedes = [];
         for (let step = 0; step < codigo.length; step++) {
           sedes.push(codigo[step] +' '+ nombre [step])
         }
-        console.log(sedes)
+        console.log(sedes);
   });
 };
 
@@ -37,9 +37,9 @@ function getProgramas () {
         if(err) {
           return console.error('error running query', err);
         }
+        var programas = [];
         var codigo = result.rows.map(codigo=>{return codigo.codigo});
         var nombre = result.rows.map( nombre=>{return nombre.nombre});
-        const programas = [];
         for (let step = 0; step < codigo.length; step++) {
           programas.push(codigo[step] +' '+ nombre [step])
         }
@@ -56,7 +56,7 @@ function getAsignaturas(){
       //console.log(result.rows);
       var codigo = result.rows.map(codigo=>{return codigo.codigo});
       var nombre = result.rows.map( nombre=>{return nombre.nombre});
-      const asignaturas = [];
+      var asignaturas = [];
       for (let step = 0; step < codigo.length; step++) {
         asignaturas.push(codigo[step] +' '+ nombre [step])
       }
