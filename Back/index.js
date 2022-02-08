@@ -1,12 +1,12 @@
 //Para trabajr las conexiones
 'use strict'
-//var app = require('./app');
 
 //Para intaciona la clase que permite la coexion a Postgress
 const pool = require('pg');
 //Realizo la conexion a la BD
 const UrlConexion = 'postgres://deprsegw:PNne0NY0oipuuxzlHbJKvQiJM09-dU06@castor.db.elephantsql.com/deprsegw' 
 const conexion = new pool.Client(UrlConexion);
+
 conexion.connect(function(err) {
   if(err) {
     return console.error('No pudo Conectarse a postgres', err);
@@ -16,7 +16,7 @@ conexion.connect(function(err) {
 });
 
 //Método que me retorna todas las sedes
-function getSedes (){
+function getSedes () {
   conexion.query('select * from sedes', function(err, result) {
         if(err) {
           return console.error('error running query', err);
@@ -32,7 +32,7 @@ function getSedes (){
 };
 
 //Método que me retorna todas los progamas
-function getProgramas () {
+function getProgramas (ciudadsede) {
     conexion.query('select * from programas', function(err, result) {
         if(err) {
           return console.error('error running query', err);
@@ -63,7 +63,6 @@ function getAsignaturas(){
       console.log(asignaturas);
     });
 };
-
 //Método que me retorna todas los progamas
 function terminarConexion(){
   conexion.query('select * from programas', function(err, result) {
@@ -77,6 +76,7 @@ getSedes();
 getProgramas();
 getAsignaturas();
 terminarConexion();
+
 //para conectarse a mongo
 /* var mongoose = requiere('mongoose')
 mongoose.connect('URL',(err,res)=>{
@@ -88,6 +88,6 @@ mongoose.connect('URL',(err,res)=>{
     }
 }); */
 
-/*module.exports={
-    getSedes
-};*/
+//module.exports = {
+    //getSedes
+//};

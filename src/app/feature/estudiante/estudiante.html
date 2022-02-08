@@ -28,8 +28,8 @@
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Sede</mat-label>
             <mat-select formControlName="sede" multiple>
-              <mat-option *ngFor="let sede of sedes"
-                [value]="sede">
+              <mat-option *ngFor="let sede of sedes" [value]="sede">
+                 {{sede}}
               </mat-option>
             </mat-select>
             <mat-error>Campo obligatorio</mat-error>
