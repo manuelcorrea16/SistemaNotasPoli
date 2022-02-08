@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {postGresService} from 'src/app/service/obtenerLIstasPostgres'
-
+import { sede } from 'Back/models/sedes';
 @Component({
   selector: 'app-estudiante',
   templateUrl: './estudiante.html',
@@ -11,7 +11,7 @@ import {postGresService} from 'src/app/service/obtenerLIstasPostgres'
 export class estudianteComponente implements OnInit {
 
   estaEnSesion: boolean = false;
-  public sedes : string[]  = [];
+  public sedes : sede[]  = [];
   public programas : string[] = [];
   @Output() openMenu = new EventEmitter();
 
@@ -21,7 +21,7 @@ export class estudianteComponente implements OnInit {
   ngOnInit(): void {  
     this.sedes = this._postGresService.obtenerSedes(); 
   }
-  
+
   clickregistro() {
     alert('hola')
   }

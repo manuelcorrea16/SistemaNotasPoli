@@ -1,6 +1,5 @@
 //Para trabajr las conexiones
 'use strict'
-
 //Para intaciona la clase que permite la coexion a Postgress
 const pool = require('pg');
 //Realizo la conexion a la BD
@@ -14,22 +13,6 @@ conexion.connect(function(err) {
   else
    return console.log('Conectado Exitosamente a Postgres');
 });
-
-//Método que me retorna todas las sedes
-function getSedes () {
-  conexion.query('select * from sedes', function(err, result) {
-        if(err) {
-          return console.error('error running query', err);
-        }
-        var sedes = [];
-        var codigo = result.rows.map(codigo=>{return codigo.codigo});
-        var nombre = result.rows.map( nombre=>{return nombre.nombre});
-        for (let step = 0; step < codigo.length; step++) {
-          sedes.push(codigo[step] +' '+ nombre [step])
-        }
-        console.log(sedes);
-  });
-};
 
 //Método que me retorna todas los progamas
 function getProgramas (ciudadsede) {
@@ -46,7 +29,6 @@ function getProgramas (ciudadsede) {
         console.log(programas);
       });
 };
-
 //Método que me retorna todas los progamas
 function getAsignaturas(){
   conexion.query('select * from asignaturas', function(err, result) {
@@ -61,33 +43,10 @@ function getAsignaturas(){
         asignaturas.push(codigo[step] +' '+ nombre [step])
       }
       console.log(asignaturas);
+      conexion.end();
     });
 };
-//Método que me retorna todas los progamas
-function terminarConexion(){
-  conexion.query('select * from programas', function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-    conexion.end();
-  });
-};
-getSedes();
+
 getProgramas();
 getAsignaturas();
 terminarConexion();
-
-//para conectarse a mongo
-/* var mongoose = requiere('mongoose')
-mongoose.connect('URL',(err,res)=>{
-    if(err){
-        throw err;
-    }
-    else{
-        console.log('Conectado Exitosamente a Mongo')
-    }
-}); */
-
-//module.exports = {
-    //getSedes
-//};
