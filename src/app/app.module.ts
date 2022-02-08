@@ -9,8 +9,9 @@ import { NotasComponent } from './feature/notas/notas.component';
 import { RegistroComponent } from './feature/registro/registro.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ToolbarComponent } from './core/toolbar/toolbar.component';
-import { MenuLateralComponent } from './core/menu-lateral/menu-lateral.component';
+
 import { HomeComponent } from './feature/home/home.component';
+import { ReporteComponent } from './feature/reporte/reporte.component';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { HomeComponent } from './feature/home/home.component';
     NotasComponent,
     RegistroComponent,
     ToolbarComponent,
-    MenuLateralComponent,
-    HomeComponent
+  
+    HomeComponent,
+    ReporteComponent
   ],
   imports: [
     BrowserModule,
