@@ -1,0 +1,48 @@
+<section class="mt-5">
+    <h1 class="titulo-pagina mt-5"> Reportes</h1>
+  <form autocomplete="off" fxLayout="column">
+    <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
+      <mat-card-content fxLayout="column">
+        <div class="form-group">
+            <mat-form-field appearance="outline" fxFlex>
+              <mat-label>Asignatura</mat-label>
+              <mat-select formControlName="asignatura" multiple>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              placeholder="Ej. ejemplo@elpoli.edu.co"
+              formControlName="email"
+            />
+          </mat-form-field>
+        </div> 
+      
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8 m-4 p-4">
+          <mat-card-actions
+        class="form-action mt-4"
+        fxLayoutAlign="center"
+        fxLayout.lt-sm="column"
+      >
+        <button
+          class="m-2"
+          type="button"
+          mat-raised-button
+          (click)="volver()"
+          color="warn"
+        >
+          <mat-icon>arrow_back</mat-icon>Regresar a la pagina principal
+        </button>
+        <button class="m-2" type="submit" mat-raised-button>
+          Generar Reporte
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>

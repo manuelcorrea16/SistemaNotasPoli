@@ -5,6 +5,7 @@ import { estudianteComponente } from './feature/estudiante/estudiante';
 import { HomeComponent } from './feature/home/home.component';
 import { NotasComponent } from './feature/notas/notas.component';
 import { RegistroComponent } from './feature/registro/registro.component';
+import { ReporteComponent } from './feature/reporte/reporte.component';
 
 const routes: Routes = [
 
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'estudiantes', component: estudianteComponente },
   { path: 'notas', component: NotasComponent },
   { path: 'registro', component: RegistroComponent },
-  // { path: 'reporte', component: estudianteComponente },
+  { path: 'reporte', component: ReporteComponent },
 
 
 ];
