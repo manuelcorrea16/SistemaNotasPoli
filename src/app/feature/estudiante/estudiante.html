@@ -36,6 +36,7 @@
             <mat-label>Sede</mat-label>
             <mat-select formControlName="sede" multiple>
               <mat-option *ngFor="let sede of sedes" [value]="sede">
+                {{sede}}
               </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
