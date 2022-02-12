@@ -13,6 +13,7 @@ import { ToolbarComponent } from './core/toolbar/toolbar.component';
 import { HomeComponent } from './feature/home/home.component';
 import { ReporteComponent } from './feature/reporte/reporte.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
