@@ -1,0 +1,20 @@
+img.logo {
+  width: 18vw;
+  height: 18vw;
+  cursor: pointer;
+}
+
+/*
+  * estilos para el menu
+  */
+section {
+  min-height: 100%;
+}
+
+.nav-caption {
+  padding-left: 20px;
+}
+
+mat-nav-list > a.mat-list-item {
+  padding-bottom: 1px !important;
+}

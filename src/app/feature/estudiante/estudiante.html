@@ -1,0 +1,82 @@
+<h1 class="titulo-pagina mt-5">Formulario de Registro</h1>
+<section class="mt-5">
+  <form autocomplete="off" fxLayout="column">
+    <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
+      <mat-card-content fxLayout="column">
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nombre Completo</mat-label>
+            <input matInput formControlName="nombre" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Email</mat-label>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <input
+              matInput
+              placeholder="Ej. ejemplo@elpoli.edu.co"
+              formControlName="email"
+            />
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Contacto en Redes</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Sede</mat-label>
+            <mat-select formControlName="sede" multiple>
+              <mat-option *ngFor="let sede of sedes" [value]="sede">
+                {{sede.codigo +' '+  sede.nombre}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Programa a registrar</mat-label>
+            <mat-select formControlName="programa" multiple>
+              <mat-option *ngFor="let programa of programas" [value]="programa">
+                {{programa}}
+              </mat-option>
+            </mat-select>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8 m-4 p-4">
+          <mat-card-actions
+        class="form-action mt-4"
+        fxLayoutAlign="center"
+        fxLayout.lt-sm="column"
+      >
+        <button
+          class="m-2"
+          type="button"
+          mat-raised-button
+          (click)="volver()"
+          color="warn"
+        >
+          <mat-icon>arrow_back</mat-icon>Regresar a la pagina principal
+        </button>
+        <button class="m-2" type="submit" mat-raised-button>
+          <mat-icon>save</mat-icon> Registrarse
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>

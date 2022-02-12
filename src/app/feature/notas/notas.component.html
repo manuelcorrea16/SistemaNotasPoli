@@ -1,0 +1,134 @@
+<h1 class="titulo-pagina mt-5">Ingresar notas</h1>
+<section class="mt-5">
+  <form autocomplete="off" fxLayout="column">
+    <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
+      <mat-card-content fxLayout="column">
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Email</mat-label>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <input
+              matInput
+              placeholder="Ej. ejemplo@elpoli.edu.co"
+              formControlName="email"
+            />
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Asignatura</mat-label>
+            <mat-select formControlName="asignatura" multiple>
+            </mat-select>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Semestre</mat-label>
+            <mat-select formControlName="semestre" multiple>
+            </mat-select>
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Parcial</mat-label>
+            <input matInput formControlName="parcial" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nota</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Parcial</mat-label>
+            <input matInput formControlName="parcial" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nota</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Talleres</mat-label>
+            <input matInput formControlName="taller" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nota</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Exposición</mat-label>
+            <input matInput formControlName="exposición" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nota</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Asistencia & Participación</mat-label>
+            <input matInput formControlName="asistencia" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" fxFlex>
+            <mat-label>Nota</mat-label>
+            <input matInput formControlName="contacto" />
+            <mat-hint>Campo obligatorio</mat-hint>
+            <mat-error>Campo obligatorio</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8 m-4 p-4">
+
+      <p>
+        **En caso que no aplique una de las opciones, no se tendra en cuenta lo que ingrese.
+      </p>
+          <mat-card-actions
+        class="form-action mt-4"
+        fxLayoutAlign="center"
+        fxLayout.lt-sm="column"
+      >
+        <button
+          class="m-2"
+          type="button"
+          mat-raised-button
+          (click)="volver()"
+          color="warn"
+        >
+          <mat-icon>arrow_back</mat-icon>Regresar a la pagina principal
+        </button>
+        <button class="m-2" type="submit" mat-raised-button>
+          <mat-icon>save</mat-icon> Enviar
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</section>
