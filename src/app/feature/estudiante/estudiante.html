@@ -1,6 +1,7 @@
 <h1 class="titulo-pagina mt-5">Formulario de Registro</h1>
 <section class="mt-5">
-  <form autocomplete="off" fxLayout="column">
+  <form autocomplete="off" [formGroup]="datosFormCred" (ngSubmit)="onSubmit()" fxLayout="column">
+
     <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
       <mat-card-content fxLayout="column">
         <div class="form-group">

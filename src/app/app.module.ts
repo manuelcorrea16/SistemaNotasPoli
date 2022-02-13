@@ -12,6 +12,13 @@ import { ToolbarComponent } from './core/toolbar/toolbar.component';
 
 import { HomeComponent } from './feature/home/home.component';
 import { ReporteComponent } from './feature/reporte/reporte.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,6 @@ import { ReporteComponent } from './feature/reporte/reporte.component';
     NotasComponent,
     RegistroComponent,
     ToolbarComponent,
-  
     HomeComponent,
     ReporteComponent
   ],
@@ -28,7 +34,13 @@ import { ReporteComponent } from './feature/reporte/reporte.component';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
