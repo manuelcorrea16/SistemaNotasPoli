@@ -4,9 +4,9 @@ var pool = require('pg');
 var sedes= require('../models/sedes')
 
 var UrlConexion = 'postgres://deprsegw:PNne0NY0oipuuxzlHbJKvQiJM09-dU06@castor.db.elephantsql.com/deprsegw' 
-var conexion = new pool.Client(UrlConexion);
+var conexionPsgt = new pool.Client(UrlConexion);
 
-conexion.connect(function(err) {
+conexionPsgt.connect(function(err) {
   if(err) {
     console.error('No pudo Conectarse a postgres', err);
   }
@@ -15,13 +15,13 @@ conexion.connect(function(err) {
   }
 });
 function getSedes(req,res){
-    conexion.query('select * from sedes', function(err, result) {
+    conexionPsgt.query('select * from sedes', function(err, result) {
       if(err) {
         return console.error('error running query', err);
       }
-      var sedes =  result.rows;
-      console.log(sedes);
-      conexion.end();
+      res =  result.rows;
+      console.log(res);
+      conexionPsgt.end();
   });
 }
 var req = 'Hola'
