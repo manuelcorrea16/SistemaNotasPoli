@@ -1,15 +1,48 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css']
+  styleUrls: ['./registro.component.css'],
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  form!: FormGroup;
+  bodyRegistro: any
+
+  datosFormCred = new FormGroup({
+    asignatura: new FormControl('',Validators.required),
+    semestre: new FormControl('',Validators.required),
+    grupo: new FormControl('',Validators.required),
+    profesor: new FormControl('',Validators.required),
+    parcial: new FormControl(''),
+    talleres: new FormControl(''),
+    exposicion: new FormControl(''),
+    participacion: new FormControl(''),
+  })
+  onSubmit(){
+    this.bodyRegistro = {
+      "asignatura": this.datosFormCred.value.asignatura,
+      "semestre": this.datosFormCred.value.semestre,
+      "grupo": this.datosFormCred.value.grupo,
+      "profesor": this.datosFormCred.value.profesor,
+      "parcial": this.datosFormCred.value.parcial,
+      "talleres": this.datosFormCred.value.talleres,
+      "exposicion": this.datosFormCred.value.exposicion,
+      "participacion": this.datosFormCred.value.participacion,
+    }
+    console.log(this.bodyRegistro)
+  }
+
+  constructor(private router: Router
+    ) {
+    }
 
   ngOnInit(): void {
   }
-
+  volver() {
+    this.router.navigate(['/']);
+  }
 }

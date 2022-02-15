@@ -1,9 +1,9 @@
-//import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
 import { postGresService } from 'src/app/service/obtenerLIstasPostgres'
 import { sede } from 'Back/models/sedes';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-estudiante',
@@ -13,19 +13,18 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class estudianteComponente implements OnInit {
 
+  correo = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/
   form!: FormGroup;
-  estaEnSesion: boolean = false;
   public sedes: sede[] = [];
   public programas: string[] = [];
-  //@Output() openMenu = new EventEmitter();
   bodyEstudiante: any
 
   datosFormCred = new FormGroup({
-    nombre: new FormControl(''),
-    email: new FormControl(''),
-    contacto: new FormControl(''),
-    sede: new FormControl(''),
-    programa: new FormControl('')
+    nombre: new FormControl('',Validators.required),
+    email: new FormControl('',Validators.pattern(this.correo)),
+    contacto: new FormControl('',Validators.required),
+    sede: new FormControl('',Validators.required),
+    programa: new FormControl('',Validators.required)
   })
 
   onSubmit() {
@@ -50,4 +49,5 @@ export class estudianteComponente implements OnInit {
   volver() {
     this.router.navigate(['/']);
   }
+
 }
