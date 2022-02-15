@@ -5,6 +5,6 @@ var sedesController = require('../controllers/sedes');
 
 var api =express.Router();
 
-api.get ('/probando-controlador',sedesController.getSedes);
+api.get ('/GetSedes',sedesController.getSedes);
     
 module.exports = api;

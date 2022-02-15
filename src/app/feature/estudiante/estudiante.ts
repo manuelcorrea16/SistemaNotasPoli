@@ -1,21 +1,21 @@
 
 import { Router } from '@angular/router';
-import { postGresService } from 'src/app/service/obtenerLIstasPostgres'
+/*import { postGresService } from 'src/app/service/obtenerLIstasPostgres'
 import { sede } from 'Back/models/sedes';
-import { Component, OnInit } from '@angular/core';
+*/import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-estudiante',
   templateUrl: './estudiante.html',
-  styleUrls: ['./estudiante.css'],
-  providers: [postGresService]
+  styleUrls: ['./estudiante.css']
+  //providers: [postGresService]
 })
 export class estudianteComponente implements OnInit {
 
   correo = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/
   form!: FormGroup;
-  public sedes: sede[] = [];
+ public sedes: String[] = [];
   public programas: string[] = [];
   bodyEstudiante: any
 
@@ -38,11 +38,11 @@ export class estudianteComponente implements OnInit {
     console.log(this.bodyEstudiante)
   }
 
-  constructor(private router: Router, private _postGresService: postGresService
+  constructor(private router: Router, //private _postGresService: postGresService
   ) {
   }
   ngOnInit(): void {
-    this.sedes = this._postGresService.obtenerSedes();
+ //   this.sedes = this._postGresService.obtenerSedes();
   }
 
 
