@@ -17,10 +17,10 @@ export class NotasComponent implements OnInit {
     email: new FormControl('',Validators.pattern(this.correo)),
     asignatura: new FormControl('',Validators.required),
     semestre: new FormControl('',Validators.required),
-    parcial: new FormControl(''),
-    talleres: new FormControl(''),
-    exposicion: new FormControl(''),
-    participacion: new FormControl(''),
+    parcial: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    talleres: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    exposicion: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    participacion: new FormControl('',[Validators.min(0),Validators.max(50)]),
   })
 
    constructor(private router: Router) {

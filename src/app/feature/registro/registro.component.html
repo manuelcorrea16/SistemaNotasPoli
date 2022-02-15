@@ -55,25 +55,25 @@
         <div class="form-group">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Parcial</mat-label>
-            <input matInput formControlName="parcial" />
+            <input matInput formControlName="parcial"  type="number"/>
           </mat-form-field>
         </div>
         <div class="form-group">
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Talleres</mat-label>
-              <input matInput formControlName="talleres" />
+              <input matInput formControlName="talleres" type="number"/>
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Exposición</mat-label>
-              <input matInput formControlName="exposicion" />
+              <input matInput formControlName="exposicion" type="number" />
             </mat-form-field>
           </div>
           <div class="form-group">
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Asistencia & Participación</mat-label>
-              <input matInput formControlName="participacion" />
+              <input matInput formControlName="participacion" type="number" />
             </mat-form-field>
           </div>
    
@@ -81,7 +81,7 @@
     </mat-card>
 
     <mat-card class="mat-elevation-z8 m-4 p-4">
-        <p>***Los valores de Metodologia son en porcentaje, y la suma debe de dar el 100%</p>
+        <p>***Los valores de Metodologia son en porcentaje, y la suma de todo debe dar el 100%, y lo maximo que puede tener cada nota es 50%</p>
           <mat-card-actions
         class="form-action mt-4"
         fxLayoutAlign="center"

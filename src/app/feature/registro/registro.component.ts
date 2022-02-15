@@ -17,10 +17,10 @@ export class RegistroComponent implements OnInit {
     semestre: new FormControl('',Validators.required),
     grupo: new FormControl('',Validators.required),
     profesor: new FormControl('',Validators.required),
-    parcial: new FormControl(''),
-    talleres: new FormControl(''),
-    exposicion: new FormControl(''),
-    participacion: new FormControl(''),
+    parcial: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    talleres: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    exposicion: new FormControl('',[Validators.min(0),Validators.max(50)]),
+    participacion: new FormControl('',[Validators.min(0),Validators.max(50)]),
   })
   onSubmit(){
     this.bodyRegistro = {
