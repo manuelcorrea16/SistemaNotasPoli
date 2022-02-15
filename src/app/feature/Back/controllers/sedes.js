@@ -14,6 +14,7 @@ conexionPsgt.connect(function(err) {
     console.log('Conectado Exitosamente a Postgres');
   }
 });
+
 function getSedes(req,res){
     conexionPsgt.query('select * from sedes', function(err, result) {
       if(err) {
@@ -24,6 +25,7 @@ function getSedes(req,res){
       conexionPsgt.end();
   });
 }
+//Prueba
 var req = 'Hola'
 var res = [];
 getSedes(req,res);

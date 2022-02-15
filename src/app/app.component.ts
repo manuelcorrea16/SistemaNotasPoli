@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {Sedes} from './models/Sedes';
+import {Sedes} from './feature/models/Sedes';
 
 @Component({
   selector: 'app-root',
