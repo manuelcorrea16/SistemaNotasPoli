@@ -3,8 +3,8 @@ import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { HttpService } from '../core/service/http.service';
-import { RespuestaApi } from '../core/model/respuesta-api.model';
+import { HttpService } from '../../core/service/http.service';
+import { RespuestaApi } from '../../core/model/respuesta-api.model';
 
 
 @Injectable()
