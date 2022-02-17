@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import "rxjs"
 
 export interface Options {
   headers?: HttpHeaders;
@@ -8,7 +9,7 @@ export interface Options {
 
 @Injectable({ providedIn: 'root' })
 export class HttpService {
-  private API_ENDPOINT = 'http://localhost:8080/api/v1';
+  private API_ENDPOINT = 'http://localhost:3000/api';
 
   constructor(protected httpClient: HttpClient) { }
 

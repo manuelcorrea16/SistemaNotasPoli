@@ -9,11 +9,16 @@ import { Sedes } from '../models/Sedes';
 export class SedesService{
     public url: string;
 
-    constructor (private _http: HttpClient){
-        this.url= GLOBAL.url;
+    constructor (private _http: HttpClient)
+    {
+       this.url= GLOBAL.url;
+   
     }
+  
      // este debe consumir el api de  '../Back/controllers/Sedes' ¿Como es lo que no he podido...
-    obtenerSedes(): Sedes[] {
+    obtenerSedes(): Sedes[]
+     {
+       
         return [
             { codigo: 1, nombre: 'Sede Medellín', cod_ciudad: 1 },
             { codigo: 2, nombre: 'Sede Bello', cod_ciudad: 12 },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-registro',
@@ -34,9 +35,13 @@ export class RegistroComponent implements OnInit {
       "participacion": this.datosFormCred.value.participacion,
     }
     console.log(this.bodyRegistro)
+    this.http.post<any>('http://localhost:3000/api/evaluar',this.bodyRegistro).subscribe(data => {
+    })
   }
 
-  constructor(private router: Router
+  constructor(
+    private router: Router,
+    private http: HttpClient
     ) {
     }
 

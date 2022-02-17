@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { estudianteComponente } from './feature/estudiante/estudiante';
+import { estudianteComponente } from './feature/estudiante/components/estudiante';
 import { HomeComponent } from './feature/home/home.component';
 import { NotasComponent } from './feature/notas/notas.component';
 import { RegistroComponent } from './feature/registro/registro.component';

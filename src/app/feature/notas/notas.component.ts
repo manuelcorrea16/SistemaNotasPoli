@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-notas',
@@ -23,7 +24,9 @@ export class NotasComponent implements OnInit {
     participacion: new FormControl('',[Validators.min(0),Validators.max(50)]),
   })
 
-   constructor(private router: Router) {
+   constructor(
+     private router: Router,
+     private http: HttpClient) {
   }
   onSubmit(){
       this.bodyNotas = {
@@ -36,6 +39,8 @@ export class NotasComponent implements OnInit {
         "participacion": this.datosFormCred.value.participacion,
       }
       console.log(this.bodyNotas)
+      this.http.post<any>('http://localhost:3000/api/nota',this.bodyNotas).subscribe(data => {
+      })
     
   }
   ngOnInit(): void {

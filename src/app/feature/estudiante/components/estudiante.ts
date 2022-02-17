@@ -2,8 +2,9 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SedesService } from '../service/sedesService';
-import { Sedes } from '../models/Sedes';
+import { SedesService } from '../../service/sedesService';
+import { Sedes } from '../../models/Sedes';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-estudiante',
@@ -17,7 +18,8 @@ export class estudianteComponente implements OnInit {
   form!: FormGroup;
   public sedes: Sedes[] = [];
   public programas: string[] = [];
-  bodyEstudiante: any
+  bodyEstudiante: any;
+  
 
   datosFormCred = new FormGroup({
     nombre: new FormControl('',Validators.required),
@@ -28,18 +30,30 @@ export class estudianteComponente implements OnInit {
   })
 
   onSubmit() {
+
     this.bodyEstudiante = {
       "nombre": this.datosFormCred.value.nombre,
       "email": this.datosFormCred.value.email,
       "contacto": this.datosFormCred.value.contacto,
-      "sede": this.datosFormCred.value.sede,
-      "programa": this.datosFormCred.value.programa
+      "sede": 
+     this.datosFormCred.value.sede,
+     "programa": this.datosFormCred.value.programa
     }
     console.log(this.bodyEstudiante)
+    this.http.post<any>('http://localhost:3000/api/registro',this.bodyEstudiante).subscribe(data => {
+    })
   }
 
-  constructor(private router: Router, private sedesServices : SedesService ) {
+  constructor
+  (
+    private router: Router, 
+    private sedesServices : SedesService, 
+    private http: HttpClient
+    )
+    
+  {
     this.sedes = this.sedesServices.obtenerSedes();
+    
   }
 
   ngOnInit(): void {

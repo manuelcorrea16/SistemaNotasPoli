@@ -1,8 +1,4 @@
-'use strict'
-var mongoose = require ('mongiise');
-var esquema = mongoose.Schema;
-
-var estudianteEsquema = esquema({
+export interface Estudiante {
     nombre: String,
     email: String,
     password: String,
@@ -17,5 +13,4 @@ var estudianteEsquema = esquema({
         codigo: Number,
         nombre: String
     }
-});
-module.exports = mongoose.model('Estudiante',estudianteEsquema);
+}

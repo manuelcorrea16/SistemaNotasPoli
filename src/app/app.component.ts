@@ -10,7 +10,7 @@ import {Sedes} from './feature/models/Sedes';
 
 export class AppComponent {
  
-  public title = 'Notras Académicas';
+  public title = 'Notas Académicas';
   public sedes : Sedes;
 
   constructor(private router: Router) { 
