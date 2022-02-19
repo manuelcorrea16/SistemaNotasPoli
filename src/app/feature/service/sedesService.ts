@@ -18,7 +18,6 @@ export class SedesService{
      // este debe consumir el api de  '../Back/controllers/Sedes' ¿Como es lo que no he podido...
     obtenerSedes(): Sedes[]
      {
-       
         return [
             { codigo: 1, nombre: 'Sede Medellín', cod_ciudad: 1 },
             { codigo: 2, nombre: 'Sede Bello', cod_ciudad: 12 },
