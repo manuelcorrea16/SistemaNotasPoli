@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-reporte',
@@ -22,8 +23,11 @@ export class ReporteComponent implements OnInit {
       "email": this.datosFormCred.value.email
     }
     console.log(this.bodyReporte)
+    this.http.get<any>('http://localhost:3000/registro',this.bodyReporte).subscribe(data => {
+    })
   }
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private http: HttpClient) {
   }
 
   ngOnInit(): void {

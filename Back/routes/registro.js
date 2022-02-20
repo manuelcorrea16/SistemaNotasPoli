@@ -20,4 +20,12 @@ router.post('/registro', (req, res, next) => {
     });
 })
 
+router.get('/registro/email', (req, res, next) => {
+    db.registro.find({email: req.params.email},(err, registro) =>
+     {
+        if (err) return next(err);
+        res.json(registro)
+    });
+})
+
 module.exports = router
