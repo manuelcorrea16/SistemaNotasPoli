@@ -1,10 +1,10 @@
-
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SedesService } from '../../service/sedesService';
 import { Sedes } from '../../models/Sedes';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-estudiante',
@@ -49,17 +49,14 @@ export class estudianteComponente implements OnInit {
     private router: Router, 
     private sedesServices : SedesService, 
     private http: HttpClient
-    )
-    
-  {
-    this.sedes = this.sedesServices.obtenerSedes();
-    
-  }
+    ) 
+  { }
 
   ngOnInit(): void {
-    this.sedes = this.sedesServices.obtenerSedes();
+    this.sedes = [ { codigo: 1, nombre: 'Medallo', cod_ciudad: 1 }];
+    // Aca esta la consulta pero en tipo observable, toca llevarla lleerla y guardarla a this.sede
+    console.log(this.sedesServices.obtenerSedes()); 
   }
-
 
   volver() {
     this.router.navigate(['/']);
