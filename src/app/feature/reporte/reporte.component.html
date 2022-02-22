@@ -8,6 +8,9 @@
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Asignatura</mat-label>
               <mat-select formControlName="asignatura" >
+                <mat-option *ngFor="let sede of sedes" [value]="sede">
+                  {{sede.codigo +' '+ sede.nombre}}
+                </mat-option>
               </mat-select>
             </mat-form-field>
           </div>
@@ -45,5 +48,49 @@
         </button>
       </mat-card-actions>
     </mat-card>
+
+    <mat-card class="mat-elevation-z8 m-4 p-4" fxFlexAlign="space-evenly">
+      <mat-card-content fxLayout="column">
+          <table mat-table [dataSource]="dataSource" class="example-table"
+                 matSort matSortActive="created" matSortDisableClear matSortDirection="desc">
+            <!-- Number Column -->
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Nombre</th>
+              <td mat-cell *matCellDef="let row">{{row.nombre}}</td>
+            </ng-container>
+      
+            <!-- Title Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Email</th>
+              <td mat-cell *matCellDef="let row">{{row.email}}</td>
+            </ng-container>
+      
+            <!-- State Column -->
+            <ng-container matColumnDef="contacto">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Contacto</th>
+              <td mat-cell *matCellDef="let row">{{row.contacto}}</td>
+            </ng-container>
+      
+            <!-- Created Column -->
+            <ng-container matColumnDef="programa">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                Programa
+              </th>
+              <td mat-cell *matCellDef="let row">{{row.programa}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="sede">
+              <th mat-header-cell mat-sort-header *matHeaderCellDef>Sede</th>
+              <td mat-cell *matCellDef="let row">{{row.sede.nombre}}</td>
+            </ng-container>
+      
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+      
+      
+      </mat-card-content>
+    </mat-card>
+
   </form>
 </section>

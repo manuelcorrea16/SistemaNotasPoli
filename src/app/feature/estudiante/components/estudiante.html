@@ -49,7 +49,7 @@
             <mat-label>Programa a registrar</mat-label>
             <mat-select formControlName="programa" >
               <mat-option *ngFor="let programa of programas" [value]="programa">
-                {{programa}}
+                {{programa.codigo + ' '+ programa.nombre}}
               </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>

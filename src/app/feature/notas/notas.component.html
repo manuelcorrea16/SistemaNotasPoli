@@ -18,21 +18,28 @@
         <div class="form-group">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Asignatura</mat-label>
-            <mat-select formControlName="asignatura" multiple>
+            <mat-select formControlName="asignatura">
+              <mat-option *ngFor="let sede of sedes" [value]="sede">
+                {{sede.codigo +' '+ sede.nombre}}
+              </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
             <mat-error>Campo obligatorio</mat-error>
           </mat-form-field>
         </div>
+     
         <div class="form-group">
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Semestre</mat-label>
-            <mat-select formControlName="semestre" multiple>
-            </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
+            <input
+              matInput
+              formControlName="semestre"
+            />
             <mat-error>Campo obligatorio</mat-error>
           </mat-form-field>
         </div>
+
         <h3>Notas</h3>
         <div class="form-group">
           <mat-form-field appearance="outline" fxFlex>

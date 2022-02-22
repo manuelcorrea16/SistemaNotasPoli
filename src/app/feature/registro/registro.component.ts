@@ -2,16 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { SedesService } from '../service/PostGresService';
+import { Sedes as Asignatura } from '../models/Sedes';
+
 
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css'],
+  providers: [SedesService]
 })
 export class RegistroComponent implements OnInit {
 
   form!: FormGroup;
   bodyRegistro: any
+  public sedes: Asignatura[] = [];
+  public programas: Asignatura[] = [];
 
   datosFormCred = new FormGroup({
     asignatura: new FormControl('',Validators.required),
@@ -46,6 +53,19 @@ export class RegistroComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.http.get<any>('http://localhost:8080/api/asignaturas/',{}).pipe(
+      map((res: any) => {
+        return res.map((sede:Asignatura) => {
+          return {
+            "codigo": sede.codigo,
+            "nombre": sede.nombre,
+            "cod_ciudad": sede.cod_ciudad,
+          } as Asignatura;
+        })
+      })).subscribe(data => {
+        console.log(data)
+        this.sedes = data
+      })
   }
   volver() {
     this.router.navigate(['/']);

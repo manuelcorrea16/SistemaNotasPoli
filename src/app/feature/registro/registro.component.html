@@ -8,8 +8,8 @@
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Asignaturas</mat-label>
             <mat-select formControlName="asignatura" >
-              <mat-option *ngFor="let asignatura of " [value]="asignatura">
-                {{asignatura}}
+              <mat-option *ngFor="let sede of sedes" [value]="sede">
+                {{sede.codigo +' '+ sede.nombre}}
               </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
