@@ -1,10 +1,11 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SedesService } from '../../service/sedesService';
+import { SedesService } from '../../service/PostGresService';
 import { Sedes } from '../../models/Sedes';
+import { Asignatura } from '../../models/Asignatura';
 import { HttpClient } from '@angular/common/http';
-
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-estudiante',
@@ -17,9 +18,9 @@ export class estudianteComponente implements OnInit {
   correo = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/
   form!: FormGroup;
   public sedes: Sedes[] = [];
-  public programas: string[] = [];
+  public programas: Asignatura[] = [];
   bodyEstudiante: any;
-  
+  public sedesAny: any = [];
 
   datosFormCred = new FormGroup({
     nombre: new FormControl('',Validators.required),
@@ -49,15 +50,18 @@ export class estudianteComponente implements OnInit {
     private router: Router, 
     private sedesServices : SedesService, 
     private http: HttpClient
-    ) 
-  { }
+    )  { }
 
   ngOnInit(): void {
     this.sedes = [ { codigo: 1, nombre: 'Medallo', cod_ciudad: 1 }];
-    // Aca esta la consulta pero en tipo observable, toca llevarla lleerla y guardarla a this.sede
-    console.log(this.sedesServices.obtenerSedes()); 
-  }
 
+    this.sedesServices.obtenerSedes()
+
+    this.programas = [ { codigo: 1, nombre: 'Técnica en Programación de Sistemas', area: 1 }];
+
+    this.sedesServices.obtenerProgramas()
+  }
+  
   volver() {
     this.router.navigate(['/']);
   }

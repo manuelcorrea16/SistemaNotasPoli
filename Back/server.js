@@ -18,7 +18,7 @@ app.get ("/", (req, res)=> {
     res.json({messege : "Bienvenido a Server Postgres"})
 });
     
-require("./routes/sedesRouters")(app);
+require("./routes/PostGresRouters")(app);
 
 const PORT = process.env.PORT  || 8080 ;
 
