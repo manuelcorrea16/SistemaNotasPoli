@@ -9,6 +9,10 @@ module.exports = app => {
     
     router.get("/asignaturas", PostGressControllers.findAllAsignaturas);
 
+    router.get("/grupos", PostGressControllers.findAllGrupos);
+
+    router.get("/profesores", PostGressControllers.findAllProfesores);
+
     app.use('/api/',router);
 
 }

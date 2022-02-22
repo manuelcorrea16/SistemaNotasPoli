@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Sedes as Asignatura } from '../models/Sedes';
+import { Asignatura } from '../models/asignaturas';
 
 @Component({
   selector: 'app-notas',
@@ -15,7 +15,7 @@ export class NotasComponent implements OnInit {
   correo = /^(([^<>()\[\]\.,;:\s@\”]+(\.[^<>()\[\]\.,;:\s@\”]+)*)|(\”.+\”))@(([^<>()[\]\.,;:\s@\”]+\.)+[^<>()[\]\.,;:\s@\”]{2,})$/
   form!: FormGroup;
   bodyNotas: any
-  public sedes: Asignatura[] = [];
+  public asignaturas: Asignatura[] = [];
 
   datosFormCred = new FormGroup({
     email: new FormControl('',Validators.pattern(this.correo)),
@@ -49,16 +49,15 @@ export class NotasComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<any>('http://localhost:8080/api/asignaturas/',{}).pipe(
       map((res: any) => {
-        return res.map((sede:Asignatura) => {
+        return res.map((asignaturas:Asignatura) => {
           return {
-            "codigo": sede.codigo,
-            "nombre": sede.nombre,
-            "cod_ciudad": sede.cod_ciudad,
+            "codigo": asignaturas.codigo,
+            "nombre": asignaturas.nombre
           } as Asignatura;
         })
       })).subscribe(data => {
         console.log(data)
-        this.sedes = data
+        this.asignaturas = data
       })
   }
   volver() {

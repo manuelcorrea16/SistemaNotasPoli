@@ -41,3 +41,24 @@ conexionPsgt.connect(function(err) {
       res.send(result.rows)
   });
   };
+
+  exports.findAllGrupos = (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*"); 
+    conexionPsgt.query('select * from grupos', function(err, result) {
+      if(err) {
+        console.error('error running query', err);
+      }
+      res.send(result.rows)
+  });
+  };
+
+  exports.findAllProfesores = (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*"); 
+    conexionPsgt.query("select * from empleados where tipo_empleado = 'Docente'", function(err, result) {
+      if(err) {
+        console.error('error running query', err);
+      }
+      res.send(result.rows)
+  });
+  };
+

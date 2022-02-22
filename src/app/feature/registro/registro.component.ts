@@ -4,7 +4,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { SedesService } from '../service/PostGresService';
-import { Sedes as Asignatura } from '../models/Sedes';
+import { Asignatura } from '../models/asignaturas';
+import { Profesor } from '../models/profesores';
+import { Grupo } from '../models/grupos';
 
 
 @Component({
@@ -17,8 +19,10 @@ export class RegistroComponent implements OnInit {
 
   form!: FormGroup;
   bodyRegistro: any
-  public sedes: Asignatura[] = [];
-  public programas: Asignatura[] = [];
+
+  public asignaturas: Asignatura[] = [];
+  public grupos: Grupo[] = [];
+  public profesores: Profesor[] = [];
 
   datosFormCred = new FormGroup({
     asignatura: new FormControl('',Validators.required),
@@ -55,17 +59,48 @@ export class RegistroComponent implements OnInit {
   ngOnInit(): void {
     this.http.get<any>('http://localhost:8080/api/asignaturas/',{}).pipe(
       map((res: any) => {
-        return res.map((sede:Asignatura) => {
+        return res.map((asignaturas:Asignatura) => {
           return {
-            "codigo": sede.codigo,
-            "nombre": sede.nombre,
-            "cod_ciudad": sede.cod_ciudad,
+            "codigo": asignaturas.codigo,
+            "nombre": asignaturas.nombre
           } as Asignatura;
         })
       })).subscribe(data => {
         console.log(data)
-        this.sedes = data
+        this.asignaturas = data
       })
+
+      //Por ahora esta a lo bruto
+      //es necesario buscar según asignatura seleccionada y semestre (capturar la asignatura y crear servicio que incluya esta busqueda)
+      this.http.get<any>('http://localhost:8080/api/grupos/',{}).pipe(
+        map((res: any) => {
+          return res.map((grupos:Grupo) => {
+            return {
+              "numero": grupos.numero,
+              "semestre": grupos.semestre,
+              "id_profesor": grupos.id_profesor,
+            } as Grupo;
+          })
+        })).subscribe(data => {
+          console.log(data)
+          this.grupos = data
+        })
+
+        //Por ahora esta a lo bruto
+        //se debe hacer un inner join con la materia que solo traiga los profesores de esa materia
+        this.http.get<any>('http://localhost:8080/api/profesores/',{}).pipe(
+          map((res: any) => {
+            return res.map((profesores:Profesor) => {
+              return {
+                "identificacion": profesores.identificacion,
+                "nombres": profesores.nombres,
+                "apellidos": profesores.apellidos
+              } as Profesor;
+            })
+          })).subscribe(data => {
+            console.log(data)
+            this.profesores = data
+          })
   }
   volver() {
     this.router.navigate(['/']);

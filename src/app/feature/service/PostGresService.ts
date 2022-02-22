@@ -22,4 +22,16 @@ export class SedesService{
     obtenerProgramas(): Observable<any> {
         return this.http.get(this.url+'/programas/')
     } 
+
+    obtenerAsignaturas(): Observable<any> {
+        return this.http.get(this.url+'/asignaturas/')
+    }  
+
+    obtenerGrupos(): Observable<any> {
+        return this.http.get(this.url+'/grupos/')
+    } 
+
+    obtenerProfesores(): Observable<any> {
+        return this.http.get(this.url+'/profesores/')
+    } 
 } 

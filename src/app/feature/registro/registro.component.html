@@ -8,8 +8,8 @@
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Asignaturas</mat-label>
             <mat-select formControlName="asignatura" >
-              <mat-option *ngFor="let sede of sedes" [value]="sede">
-                {{sede.codigo +' '+ sede.nombre}}
+              <mat-option *ngFor="let asignatura of asignaturas" [value]="asignatura">
+                {{asignatura.codigo +' '+ asignatura.nombre}}
               </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
@@ -31,8 +31,8 @@
           <mat-form-field appearance="outline" fxFlex>
             <mat-label>Grupo</mat-label>
             <mat-select formControlName="grupo" >
-              <mat-option *ngFor="let grupo of" [value]="grupo">
-                {{grupo}}
+              <mat-option *ngFor="let grupo of grupos" [value]="grupo">
+                {{grupo.numero + ' ' + grupo.semestre + ' ' + grupo.id_profesor}}
               </mat-option>
             </mat-select>
             <mat-hint>Campo obligatorio</mat-hint>
@@ -43,8 +43,8 @@
             <mat-form-field appearance="outline" fxFlex>
               <mat-label>Profesor</mat-label>
               <mat-select formControlName="profesor">
-                <mat-option *ngFor="let profesor of " [value]="profesor">
-                  {{profesor}}
+                <mat-option *ngFor="let profesor of profesores " [value]="profesor">
+                  {{profesor.identificacion + ' ' + profesor.nombres + ' ' + profesor.apellidos}}
                 </mat-option>
               </mat-select>
               <mat-hint>Campo obligatorio</mat-hint>
