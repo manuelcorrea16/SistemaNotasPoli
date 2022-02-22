@@ -26,6 +26,7 @@ export class ReporteComponent implements OnInit {
   displayedColumns = ['nombre', 'email', 'contacto', 'programa', 'sede']
   dataSource = new MatTableDataSource<Reporte>();
   public sedes: Asignatura[] = [];
+  public programa: Asignatura[] = [];
 
   datosFormCred = new FormGroup({
     asignatura: new FormControl(''),
@@ -45,7 +46,7 @@ export class ReporteComponent implements OnInit {
             "nombre": reporte.nombre,
             "email": reporte.email,
             "contacto": reporte.contacto,
-            "programa": reporte.programa,
+            "programa": reporte.programa?reporte.programa:'BD2',
             "sede": reporte.sede?reporte.sede:'prueba'
           } as Reporte;
         })
